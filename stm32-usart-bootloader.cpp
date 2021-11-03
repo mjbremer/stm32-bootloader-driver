@@ -266,7 +266,7 @@ uint8_t Stm32_usart_bootloader::program(uint8_t* buf, size_t len) {
   return STM32_ACK;
 }
 
-uint8_t Stm32_usart_bootloader::erase_program_space(size_t program_size) {
+uint8_t Stm32_usart_bootloader::_erase_program_space(size_t program_size) {
   uint16_t num_pages = 1+(program_size/256);
   uint16_t* pagenumbers = (uint16_t*)malloc(2*num_pages);
   for (int i=0;i<num_pages;i++) {pagenumbers[i] = i;}
