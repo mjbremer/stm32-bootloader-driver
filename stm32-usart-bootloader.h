@@ -63,14 +63,14 @@ class Stm32_usart_bootloader {
 
     // Functions built on top of base commands 
     uint8_t program(uint8_t* buf, size_t len);
-    uint8_t erase_program_space(size_t program_size);
+    
   private:
     HardwareSerial* _ser;
     uint8_t _send(const uint8_t* buf, size_t len);
     uint8_t _send_command(uint8_t cmd);
     uint8_t _checksum(uint8_t* buf, size_t len);
     void _log_resp(uint8_t resp);
-
+    uint8_t _erase_program_space(size_t program_size);
     // Things we can read from the bootloader
     uint8_t _version = 0x00;
     uint8_t _num_commands = 0;
